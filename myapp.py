@@ -10,7 +10,7 @@ def create_app():
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
     return app
 
-
+app=create_app()
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
