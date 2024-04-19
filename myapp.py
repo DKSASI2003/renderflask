@@ -3,10 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
-app = Flask(__name__)
-CORS(app,resources={r"/*": {"origins": "*"}})
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://users_ttoz_user:h2o9r7DgqKuthBQlPh27TCWUSND812UQ@dpg-coh6juvsc6pc73ahpvq0-a.oregon-postgres.render.com:5432/users_ttoz'
-app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
+def create_app():
+    app = Flask(__name__)
+    CORS(app,resources={r"/*": {"origins": "*"}})
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://users_ttoz_user:h2o9r7DgqKuthBQlPh27TCWUSND812UQ@dpg-coh6juvsc6pc73ahpvq0-a.oregon-postgres.render.com:5432/users_ttoz'
+    app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
+    return app
 
 
 db = SQLAlchemy(app)
