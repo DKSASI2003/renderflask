@@ -44,7 +44,7 @@ def login():
     if not user or not check_password_hash(user.password, data['password']):
         return {'message': 'Login failed!'}
     login_user(user)
-    return {'message': 'Logged in successfully!'}
+    return {'message': f'Logged in successfully!{user}'}
 
 
 if __name__ == '__main__':
