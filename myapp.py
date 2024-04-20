@@ -5,11 +5,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 import os
 sqlalchemy_database_uri=os.getenv('DATABASE_URI')
+secret_key=os.getenv('secret_key')
+
 
 def create_app():
     app = Flask(__name__)
     CORS(app,resources={r"/*": {"origins": "*"}})
     app.config['SQLALCHEMY_DATABASE_URI'] = sqlalchemy_database_uri
+    app.config['SECRET_KEY'] = secret_key
     return app
 
 app=create_app()
